@@ -1,11 +1,13 @@
 from elftools.elf.elffile import ELFFile
 from elftools.elf.segments import Segment
 
-with open('elfs//0a1c2f23efa1ccc2558e140fa35e9b0d', 'rb') as elffile:
+with open('elfs//0a7ba5f8b1a8b57d463fc14ec0261e66', 'rb') as elffile:
     elffile = ELFFile(elffile)
+    
+    features_dict = {}
+
     num_sections = elffile.num_sections()
     num_segments = elffile.num_segments()
-
     has_dwarf_info = elffile.has_dwarf_info()
     dwarf_info_config_machine_arch = (elffile.get_dwarf_info().config.machine_arch)
     dwarf_info_config_default_address_size = (elffile.get_dwarf_info().config.default_address_size)
@@ -21,14 +23,11 @@ with open('elfs//0a1c2f23efa1ccc2558e140fa35e9b0d', 'rb') as elffile:
     dwarf_info_debug_line_sec = (elffile.get_dwarf_info().debug_line_sec)
     dwarf_info_debug_pubtypes_sec = (elffile.get_dwarf_info().debug_pubtypes_sec)
     dwarf_info_debug_pubnames_sec = (elffile.get_dwarf_info().debug_pubnames_sec)
-
     has_ehabi_info = (elffile.has_ehabi_info())
     ehabi_infos = (elffile.get_ehabi_infos())
-
     machine_arch = (elffile.get_machine_arch())
     shstrndx = (elffile.get_shstrndx())
     identify_file = (elffile._identify_file())
-
     sec_header_sh_name = (elffile._get_section_header_stringtable().header.sh_name)
     sec_header_sh_type = (elffile._get_section_header_stringtable().header.sh_type)
     sec_header_sh_flags = (elffile._get_section_header_stringtable().header.sh_flags)
@@ -39,7 +38,6 @@ with open('elfs//0a1c2f23efa1ccc2558e140fa35e9b0d', 'rb') as elffile:
     sec_header_sh_info = (elffile._get_section_header_stringtable().header.sh_info)
     sec_header_sh_addralign = (elffile._get_section_header_stringtable().header.sh_addralign)
     sec_header_sh_entsize = (elffile._get_section_header_stringtable().header.sh_entsize)
-
     elf_head_ident_EI_MAG = (elffile._parse_elf_header().e_ident.EI_MAG)
     elf_head_ident_EI_CLASS = (elffile._parse_elf_header().e_ident.EI_CLASS)
     elf_head_ident_EI_DATA = (elffile._parse_elf_header().e_ident.EI_DATA)
@@ -60,8 +58,63 @@ with open('elfs//0a1c2f23efa1ccc2558e140fa35e9b0d', 'rb') as elffile:
     elf_head_e_shnum = (elffile._parse_elf_header().e_shnum)
     elf_head_e_shstrndx = (elffile._parse_elf_header().e_shstrndx)
 
+    features_dict['num_sections'] = num_sections
+    features_dict['num_segments'] = num_segments
+    features_dict['has_dwarf_info'] = has_dwarf_info
+    features_dict['dwarf_info_config_machine_arch'] = dwarf_info_config_machine_arch
+    features_dict['dwarf_info_config_default_address_size'] = dwarf_info_config_default_address_size
+    features_dict['dwarf_info_config_little_endian'] = dwarf_info_config_little_endian
+    features_dict['dwarf_info_debug_info_sec'] = dwarf_info_debug_info_sec
+    features_dict['dwarf_info_debug_aranges_sec'] = dwarf_info_debug_aranges_sec
+    features_dict['dwarf_info_debug_abbrev_sec'] = dwarf_info_debug_abbrev_sec
+    features_dict['dwarf_info_debug_frame_sec'] = dwarf_info_debug_frame_sec
+    features_dict['dwarf_info_eh_frame_sec'] = dwarf_info_eh_frame_sec
+    features_dict['dwarf_info_debug_str_sec'] = dwarf_info_debug_str_sec
+    features_dict['dwarf_info_debug_loc_sec'] = dwarf_info_debug_loc_sec
+    features_dict['dwarf_info_debug_ranges_sec'] = dwarf_info_debug_ranges_sec
+    features_dict['dwarf_info_debug_line_sec'] = dwarf_info_debug_line_sec
+    features_dict['dwarf_info_debug_pubtypes_sec'] = dwarf_info_debug_pubtypes_sec
+    features_dict['dwarf_info_debug_pubnames_sec'] = dwarf_info_debug_pubnames_sec
+    features_dict['has_ehabi_info'] = has_ehabi_info
+    features_dict['ehabi_infos'] = ehabi_infos
+    features_dict['machine_arch'] = machine_arch
+    features_dict['shstrndx'] = shstrndx
+    features_dict['identify_file'] = identify_file
+    features_dict['sec_header_sh_name'] = sec_header_sh_name
+    features_dict['sec_header_sh_type'] = sec_header_sh_type
+    features_dict['sec_header_sh_flags'] = sec_header_sh_flags
+    features_dict['sec_header_sh_addr'] = sec_header_sh_addr
+    features_dict['sec_header_sh_offset'] = sec_header_sh_offset
+    features_dict['sec_header_sh_size'] = sec_header_sh_size
+    features_dict['sec_header_sh_link'] = sec_header_sh_link
+    features_dict['sec_header_sh_info'] = sec_header_sh_info
+    features_dict['sec_header_sh_addralign'] = sec_header_sh_addralign
+    features_dict['sec_header_sh_entsize'] = sec_header_sh_entsize
+    features_dict['elf_head_ident_EI_MAG'] = elf_head_ident_EI_MAG
+    features_dict['elf_head_ident_EI_CLASS'] = elf_head_ident_EI_CLASS
+    features_dict['elf_head_ident_EI_DATA'] = elf_head_ident_EI_DATA
+    features_dict['elf_head_ident_EI_VERSION'] = elf_head_ident_EI_VERSION
+    features_dict['elf_head_ident_EI_OSABI'] = elf_head_ident_EI_OSABI
+    features_dict['elf_head_ident_EI_ABIVERSION'] = elf_head_ident_EI_ABIVERSION
+    features_dict['elf_head_e_type'] = elf_head_e_type
+    features_dict['elf_head_e_machine'] = elf_head_e_machine
+    features_dict['elf_head_e_version'] = elf_head_e_version
+    features_dict['elf_head_e_entry'] = elf_head_e_entry
+    features_dict['elf_head_e_phoff'] = elf_head_e_phoff
+    features_dict['elf_head_e_shoff'] = elf_head_e_shoff
+    features_dict['elf_head_e_flags'] = elf_head_e_flags
+    features_dict['elf_head_e_ehsize'] = elf_head_e_ehsize
+    features_dict['elf_head_e_phentsize'] = elf_head_e_phentsize
+    features_dict['elf_head_e_phnum'] = elf_head_e_phnum
+    features_dict['elf_head_e_shentsize'] = elf_head_e_shentsize
+    features_dict['elf_head_e_shnum'] = elf_head_e_shnum
+    features_dict['elf_head_e_shstrndx'] = elf_head_e_shstrndx
+    
+
+    temp = 0
     for segment in elffile.iter_segments():
         seg_head_p_type = (segment.header.p_type)
+        features_dict[f'seg{temp}_head_p_type'] = segment.header.p_type
         seg_head_p_offset = (segment.header.p_offset)
         seg_head_p_filesz= (segment.header.p_filesz)
         seg_head_p_memsz = (segment.header.p_memsz)
@@ -70,8 +123,18 @@ with open('elfs//0a1c2f23efa1ccc2558e140fa35e9b0d', 'rb') as elffile:
         seg_head_p_vaddr = (segment.header.p_vaddr)
         seg_head_p_paddr = (segment.header.p_paddr)
 
+        features_dict[f'seg{temp}_{seg_head_p_type}_p_offset'] = seg_head_p_offset
+        features_dict[f'seg{temp}_{seg_head_p_type}_p_filesz'] = seg_head_p_filesz
+        features_dict[f'seg{temp}_{seg_head_p_type}_p_memsz'] = seg_head_p_memsz
+        features_dict[f'seg{temp}_{seg_head_p_type}_p_flags'] = seg_head_p_flags
+        features_dict[f'seg{temp}_{seg_head_p_type}_p_align'] = seg_head_p_align
+        features_dict[f'seg{temp}_{seg_head_p_type}_p_vaddr'] = seg_head_p_vaddr
+        features_dict[f'seg{temp}_{seg_head_p_type}_p_paddr'] = seg_head_p_paddr
+        temp += 1
+
     for section in elffile.iter_sections():
-        section_name = (section.name)
+        section_name = (section.name)[1:]
+        features_dict[f'section_{section_name}'] = section.name
         sechead_sh_name = (section.header.sh_name)
         sechead_sh_type = (section.header.sh_type)
         sechead_sh_flags = (section.header.sh_flags)
@@ -82,7 +145,19 @@ with open('elfs//0a1c2f23efa1ccc2558e140fa35e9b0d', 'rb') as elffile:
         sechead_sh_info = (section.header.sh_info)
         sechead_sh_addralign = (section.header.sh_addralign)
         sechead_sh_entsize = (section.header.sh_entsize)
-        
+
+        features_dict[f'section_{section_name}_sh_name'] = sechead_sh_name
+        features_dict[f'section_{section_name}_sh_type'] = sechead_sh_type
+        features_dict[f'section_{section_name}_sh_flags'] = sechead_sh_flags
+        features_dict[f'section_{section_name}_sh_addr'] = sechead_sh_addr
+        features_dict[f'section_{section_name}_sh_offset'] = sechead_sh_offset
+        features_dict[f'section_{section_name}_sh_size'] = sechead_sh_size
+        features_dict[f'section_{section_name}_sh_link'] = sechead_sh_link
+        features_dict[f'section_{section_name}_sh_info'] = sechead_sh_info
+        features_dict[f'section_{section_name}_sh_addralign'] = sechead_sh_addralign
+        features_dict[f'section_{section_name}_sh_entsize'] = sechead_sh_entsize
+
+print(features_dict)
 
 # with open("rawdata.txt", "w") as text_file:
 #     print(f"num_sections: {elffile.num_sections()}", file=text_file)
