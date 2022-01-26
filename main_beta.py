@@ -26,10 +26,13 @@ def get_elf_info(elf):
         dwarf_info_debug_abbrev_sec = (elffile.get_dwarf_info().debug_abbrev_sec)
         dwarf_info_debug_frame_sec = (elffile.get_dwarf_info().debug_frame_sec)
         
-        dwarf_info_eh_frame_sec_name = (elffile.get_dwarf_info().eh_frame_sec.name)
-        dwarf_info_eh_frame_sec_global_offset = (elffile.get_dwarf_info().eh_frame_sec.global_offset)
-        dwarf_info_eh_frame_sec_size = (elffile.get_dwarf_info().eh_frame_sec.size)
-        dwarf_info_eh_frame_sec_address = (elffile.get_dwarf_info().eh_frame_sec.address)
+        dwarf_info_eh_frame_sec = (elffile.get_dwarf_info().eh_frame_sec)
+
+        print(dwarf_info_eh_frame_sec.name)
+        print(dwarf_info_eh_frame_sec.global_offset)
+        print(dwarf_info_eh_frame_sec.size)
+        print(dwarf_info_eh_frame_sec.address)
+
 
         dwarf_info_debug_str_sec = (elffile.get_dwarf_info().debug_str_sec)
         dwarf_info_debug_loc_sec = (elffile.get_dwarf_info().debug_loc_sec)
@@ -82,10 +85,7 @@ def get_elf_info(elf):
         features_dict['dwarf_info_debug_aranges_sec'] = dwarf_info_debug_aranges_sec
         features_dict['dwarf_info_debug_abbrev_sec'] = dwarf_info_debug_abbrev_sec
         features_dict['dwarf_info_debug_frame_sec'] = dwarf_info_debug_frame_sec
-        features_dict['dwarf_info_eh_frame_sec_name'] = dwarf_info_eh_frame_sec_name
-        features_dict['dwarf_info_eh_frame_sec_global_offset'] = dwarf_info_eh_frame_sec_global_offset
-        features_dict['dwarf_info_eh_frame_sec_size'] = dwarf_info_eh_frame_sec_size
-        features_dict['dwarf_info_eh_frame_sec_address'] = dwarf_info_eh_frame_sec_address
+        features_dict['dwarf_info_eh_frame_sec'] = dwarf_info_eh_frame_sec
         features_dict['dwarf_info_debug_str_sec'] = dwarf_info_debug_str_sec
         features_dict['dwarf_info_debug_loc_sec'] = dwarf_info_debug_loc_sec
         features_dict['dwarf_info_debug_ranges_sec'] = dwarf_info_debug_ranges_sec
@@ -175,42 +175,47 @@ def get_elf_info(elf):
             features_dict[f'section_{section_name}_sh_entsize'] = sechead_sh_entsize
     return features_dict
 
-def formatdict(d, tab=0):
-    s = ['{\n']
-    for k,v in d.items():
-        if isinstance(v, dict):
-            v = format(v, tab+1)
-        else:
-            v = repr(v)
+# def formatdict(d, tab=0):
+#     s = ['{\n']
+#     for k,v in d.items():
+#         if isinstance(v, dict):
+#             v = format(v, tab+1)
+#         else:
+#             v = repr(v)
 
-        s.append('%s%r: %s,\n' % ('  '*tab, k, v))
-    s.append('%s}' % ('  '*tab))
-    return ''.join(s)
+#         s.append('%s%r: %s,\n' % ('  '*tab, k, v))
+#     s.append('%s}' % ('  '*tab))
+#     return ''.join(s)
 
-def dict_to_txt(d, name):
-    with open(name, "a") as text_file:
-        print(formatdict(d), file=text_file)
+# def dict_to_txt(d, name):
+#     with open(name, "a") as text_file:
+#         print(formatdict(d), file=text_file)
 
-def dict_to_csv(d, name):
-    keys = d[0].keys()
-    with open(name, 'w', newline='') as output_file:
-        dict_writer = csv.DictWriter(output_file, keys, extrasaction='ignore')
-        dict_writer.writeheader()
-        dict_writer.writerows(d)
+# def dict_to_csv(d, name):
+#     keys = d[0].keys()
+#     with open(name, 'w', newline='') as output_file:
+#         dict_writer = csv.DictWriter(output_file, keys, extrasaction='ignore')
+#         dict_writer.writeheader()
+#         dict_writer.writerows(d)
 
-try:
-    if(os.path.isdir(sys.argv[1])):
-        info_dictionaries = []
-        for filename in os.listdir(sys.argv[1]):
-            info_dictionary = get_elf_info(sys.argv[1]+"/"+filename)
-            # dict_to_txt(info_dictionary, 'dump.txt')
-            info_dictionaries.append(info_dictionary)
-        dict_to_csv(info_dictionaries, 'dump.csv')
-    else:
-        info_dictionary = get_elf_info(sys.argv[1])
-        dict_to_txt(info_dictionary, 'dump.txt')
-        # dict_to_csv(info_dictionary, 'dump.csv')
+# try:
+#     if(os.path.isdir(sys.argv[1])):
+#         info_dictionaries = []
+#         for filename in os.listdir(sys.argv[1]):
+#             info_dictionary = get_elf_info(sys.argv[1]+"/"+filename)
+#             # dict_to_txt(info_dictionary, 'dump.txt')
+#             info_dictionaries.append(info_dictionary)
+#         dict_to_csv(info_dictionaries, 'dump.csv')
+#     else:
+#         info_dictionary = get_elf_info(sys.argv[1])
+#         dict_to_txt(info_dictionary, 'dump.txt')
+#         # dict_to_csv(info_dictionary, 'dump.csv')
 
-except FileNotFoundError:
-    print("specified file was not found")
+# except FileNotFoundError:
+#     print("specified file was not found")
+
+
+
+get_elf_info(sys.argv[1])
+
 
