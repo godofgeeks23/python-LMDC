@@ -5,16 +5,8 @@ import os
 from elftools.elf.elffile import ELFFile
 from elftools.elf.segments import Segment
 
-def is_elf(elf):
-    with open(elf, 'rb') as f:
-        try:
-            test = ELFFile(f)._identify_file()
-            return True
-        except:
-            return False
-
 def get_elf_info(elf):
-        
+    print("file - " + elf)    
     with open(elf, 'rb') as elffile:
         features_dict = {}
 
@@ -34,10 +26,10 @@ def get_elf_info(elf):
         dwarf_info_debug_abbrev_sec = (elffile.get_dwarf_info().debug_abbrev_sec)
         dwarf_info_debug_frame_sec = (elffile.get_dwarf_info().debug_frame_sec)
         
-        dwarf_info_eh_frame_sec_name = (elffile.get_dwarf_info().eh_frame_sec.name)
-        dwarf_info_eh_frame_sec_global_offset = (elffile.get_dwarf_info().eh_frame_sec.global_offset)
-        dwarf_info_eh_frame_sec_size = (elffile.get_dwarf_info().eh_frame_sec.size)
-        dwarf_info_eh_frame_sec_address = (elffile.get_dwarf_info().eh_frame_sec.address)
+        # dwarf_info_eh_frame_sec_name = (elffile.get_dwarf_info().eh_frame_sec.name)
+        # dwarf_info_eh_frame_sec_global_offset = (elffile.get_dwarf_info().eh_frame_sec.global_offset)
+        # dwarf_info_eh_frame_sec_size = (elffile.get_dwarf_info().eh_frame_sec.size)
+        # dwarf_info_eh_frame_sec_address = (elffile.get_dwarf_info().eh_frame_sec.address)
 
         dwarf_info_debug_str_sec = (elffile.get_dwarf_info().debug_str_sec)
         dwarf_info_debug_loc_sec = (elffile.get_dwarf_info().debug_loc_sec)
@@ -90,10 +82,10 @@ def get_elf_info(elf):
         features_dict['dwarf_info_debug_aranges_sec'] = dwarf_info_debug_aranges_sec
         features_dict['dwarf_info_debug_abbrev_sec'] = dwarf_info_debug_abbrev_sec
         features_dict['dwarf_info_debug_frame_sec'] = dwarf_info_debug_frame_sec
-        features_dict['dwarf_info_eh_frame_sec_name'] = dwarf_info_eh_frame_sec_name
-        features_dict['dwarf_info_eh_frame_sec_global_offset'] = dwarf_info_eh_frame_sec_global_offset
-        features_dict['dwarf_info_eh_frame_sec_size'] = dwarf_info_eh_frame_sec_size
-        features_dict['dwarf_info_eh_frame_sec_address'] = dwarf_info_eh_frame_sec_address
+        # features_dict['dwarf_info_eh_frame_sec_name'] = dwarf_info_eh_frame_sec_name
+        # features_dict['dwarf_info_eh_frame_sec_global_offset'] = dwarf_info_eh_frame_sec_global_offset
+        # features_dict['dwarf_info_eh_frame_sec_size'] = dwarf_info_eh_frame_sec_size
+        # features_dict['dwarf_info_eh_frame_sec_address'] = dwarf_info_eh_frame_sec_address
         features_dict['dwarf_info_debug_str_sec'] = dwarf_info_debug_str_sec
         features_dict['dwarf_info_debug_loc_sec'] = dwarf_info_debug_loc_sec
         features_dict['dwarf_info_debug_ranges_sec'] = dwarf_info_debug_ranges_sec
