@@ -5,6 +5,14 @@ import os
 from elftools.elf.elffile import ELFFile
 from elftools.elf.segments import Segment
 
+def is_elf(elf):
+    with open(elf, 'rb') as f:
+        try:
+            test = ELFFile(f)._identify_file()
+            return True
+        except:
+            return False
+
 def get_elf_info(elf):
         
     with open(elf, 'rb') as elffile:
@@ -203,9 +211,9 @@ try:
         info_dictionaries = []
         for filename in os.listdir(sys.argv[1]):
             info_dictionary = get_elf_info(sys.argv[1]+"/"+filename)
-            # dict_to_txt(info_dictionary, 'dump.txt')
+            dict_to_txt(info_dictionary, sys.argv[2]+".txt")
             info_dictionaries.append(info_dictionary)
-        dict_to_csv(info_dictionaries, 'dump.csv')
+        dict_to_csv(info_dictionaries, sys.argv[2]+".csv")
     else:
         info_dictionary = get_elf_info(sys.argv[1])
         dict_to_txt(info_dictionary, 'dump.txt')
