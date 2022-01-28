@@ -21,22 +21,129 @@ def get_elf_info(elf):
         dwarf_info_config_machine_arch = (elffile.get_dwarf_info().config.machine_arch)
         dwarf_info_config_default_address_size = (elffile.get_dwarf_info().config.default_address_size)
         dwarf_info_config_little_endian = (elffile.get_dwarf_info().config.little_endian)
+
         dwarf_info_debug_info_sec = (elffile.get_dwarf_info().debug_info_sec)
+        if dwarf_info_debug_info_sec is not None:
+            dwarf_info_debug_info_sec_name = (elffile.get_dwarf_info().debug_info_sec.name)
+            dwarf_info_debug_info_sec_global_offset = (elffile.get_dwarf_info().debug_info_sec.global_offset)
+            dwarf_info_debug_info_sec_size = (elffile.get_dwarf_info().debug_info_sec.size)
+            dwarf_info_debug_info_sec_address = (elffile.get_dwarf_info().debug_info_sec.address)
+        else:
+            dwarf_info_debug_info_sec_name = None
+            dwarf_info_debug_info_sec_global_offset = None
+            dwarf_info_debug_info_sec_size = None
+            dwarf_info_debug_info_sec_address = None
+            
+   
+
         dwarf_info_debug_aranges_sec = (elffile.get_dwarf_info().debug_aranges_sec)
+        if dwarf_info_debug_aranges_sec is not None:
+            dwarf_info_debug_aranges_sec_name = (elffile.get_dwarf_info().debug_aranges_sec.name)
+            dwarf_info_debug_aranges_sec_global_offset = (elffile.get_dwarf_info().debug_aranges_sec.global_offset)
+            dwarf_info_debug_aranges_sec_size = (elffile.get_dwarf_info().debug_aranges_sec.size)
+            dwarf_info_debug_aranges_sec_address = (elffile.get_dwarf_info().debug_aranges_sec.address)
+        else:
+            dwarf_info_debug_aranges_sec_name = None
+            dwarf_info_debug_aranges_sec_global_offset = None
+            dwarf_info_debug_aranges_sec_size = None
+            dwarf_info_debug_aranges_sec_address = None
+
         dwarf_info_debug_abbrev_sec = (elffile.get_dwarf_info().debug_abbrev_sec)
+        if dwarf_info_debug_abbrev_sec is not None:
+            dwarf_info_debug_abbrev_sec_name = (elffile.get_dwarf_info().debug_abbrev_sec.name)
+            dwarf_info_debug_abbrev_sec_global_offset = (elffile.get_dwarf_info().debug_abbrev_sec.global_offset)
+            dwarf_info_debug_abbrev_sec_size = (elffile.get_dwarf_info().debug_abbrev_sec.size)
+            dwarf_info_debug_abbrev_sec_address = (elffile.get_dwarf_info().debug_abbrev_sec.address)
+        else:
+            dwarf_info_debug_abbrev_sec_name = None
+            dwarf_info_debug_abbrev_sec_global_offset = None
+            dwarf_info_debug_abbrev_sec_size = None
+            dwarf_info_debug_abbrev_sec_address = None
+
         dwarf_info_debug_frame_sec = (elffile.get_dwarf_info().debug_frame_sec)
-        
-        # dwarf_info_eh_frame_sec_name = (elffile.get_dwarf_info().eh_frame_sec.name)
-        # dwarf_info_eh_frame_sec_global_offset = (elffile.get_dwarf_info().eh_frame_sec.global_offset)
-        # dwarf_info_eh_frame_sec_size = (elffile.get_dwarf_info().eh_frame_sec.size)
-        # dwarf_info_eh_frame_sec_address = (elffile.get_dwarf_info().eh_frame_sec.address)
+        if dwarf_info_debug_frame_sec is not None:
+            dwarf_info_debug_frame_sec_name = (elffile.get_dwarf_info().debug_frame_sec.name)
+            dwarf_info_debug_frame_sec_global_offset = (elffile.get_dwarf_info().debug_frame_sec.global_offset)
+            dwarf_info_debug_frame_sec_size = (elffile.get_dwarf_info().debug_frame_sec.size)
+            dwarf_info_debug_frame_sec_address = (elffile.get_dwarf_info().debug_frame_sec.address)
+        else:
+            dwarf_info_debug_frame_sec_name = None
+            dwarf_info_debug_frame_sec_global_offset = None
+            dwarf_info_debug_frame_sec_size = None
+            dwarf_info_debug_frame_sec_address = None
 
         dwarf_info_debug_str_sec = (elffile.get_dwarf_info().debug_str_sec)
+        if dwarf_info_debug_str_sec is not None:
+            dwarf_info_debug_str_sec_name = (elffile.get_dwarf_info().debug_str_sec.name)
+            dwarf_info_debug_str_sec_global_offset = (elffile.get_dwarf_info().debug_str_sec.global_offset)
+            dwarf_info_debug_str_sec_size = (elffile.get_dwarf_info().debug_str_sec.size)
+            dwarf_info_debug_str_sec_address = (elffile.get_dwarf_info().debug_str_sec.address)
+        else:
+            dwarf_info_debug_str_sec_name = None
+            dwarf_info_debug_str_sec_global_offset = None
+            dwarf_info_debug_str_sec_size = None
+            dwarf_info_debug_str_sec_address = None
+
         dwarf_info_debug_loc_sec = (elffile.get_dwarf_info().debug_loc_sec)
+        if dwarf_info_debug_loc_sec is not None:
+            dwarf_info_debug_loc_sec_name = (elffile.get_dwarf_info().debug_loc_sec.name)
+            dwarf_info_debug_loc_sec_global_offset = (elffile.get_dwarf_info().debug_loc_sec.global_offset)
+            dwarf_info_debug_loc_sec_size = (elffile.get_dwarf_info().debug_loc_sec.size)
+            dwarf_info_debug_loc_sec_address = (elffile.get_dwarf_info().debug_loc_sec.address)
+        else:
+            dwarf_info_debug_loc_sec_name = None
+            dwarf_info_debug_loc_sec_global_offset = None
+            dwarf_info_debug_loc_sec_size = None
+            dwarf_info_debug_loc_sec_address = None
+
         dwarf_info_debug_ranges_sec = (elffile.get_dwarf_info().debug_ranges_sec)
+        if dwarf_info_debug_ranges_sec is not None:
+            dwarf_info_debug_ranges_sec_name = (elffile.get_dwarf_info().debug_ranges_sec.name)
+            dwarf_info_debug_ranges_sec_global_offset = (elffile.get_dwarf_info().debug_ranges_sec.global_offset)
+            dwarf_info_debug_ranges_sec_size = (elffile.get_dwarf_info().debug_ranges_sec.size)
+            dwarf_info_debug_ranges_sec_address = (elffile.get_dwarf_info().debug_ranges_sec.address)
+        else:
+            dwarf_info_debug_ranges_sec_name = None
+            dwarf_info_debug_ranges_sec_global_offset = None
+            dwarf_info_debug_ranges_sec_size = None
+            dwarf_info_debug_ranges_sec_address = None
+
         dwarf_info_debug_line_sec = (elffile.get_dwarf_info().debug_line_sec)
+        if dwarf_info_debug_line_sec is not None:
+            dwarf_info_debug_line_sec_name = (elffile.get_dwarf_info().debug_line_sec.name)
+            dwarf_info_debug_line_sec_global_offset = (elffile.get_dwarf_info().debug_line_sec.global_offset)
+            dwarf_info_debug_line_sec_size = (elffile.get_dwarf_info().debug_line_sec.size)
+            dwarf_info_debug_line_sec_address = (elffile.get_dwarf_info().debug_line_sec.address)
+        else:
+            dwarf_info_debug_line_sec_name = None
+            dwarf_info_debug_line_sec_global_offset = None
+            dwarf_info_debug_line_sec_size = None
+            dwarf_info_debug_line_sec_address = None
+
         dwarf_info_debug_pubtypes_sec = (elffile.get_dwarf_info().debug_pubtypes_sec)
+        if dwarf_info_debug_pubtypes_sec is not None:
+            dwarf_info_debug_pubtypes_sec_name = (elffile.get_dwarf_info().debug_pubtypes_sec.name)
+            dwarf_info_debug_pubtypes_sec_global_offset = (elffile.get_dwarf_info().debug_pubtypes_sec.global_offset)
+            dwarf_info_debug_pubtypes_sec_size = (elffile.get_dwarf_info().debug_pubtypes_sec.size)
+            dwarf_info_debug_pubtypes_sec_address = (elffile.get_dwarf_info().debug_pubtypes_sec.address)
+        else:
+            dwarf_info_debug_pubtypes_sec_name = None
+            dwarf_info_debug_pubtypes_sec_global_offset = None
+            dwarf_info_debug_pubtypes_sec_size = None
+            dwarf_info_debug_pubtypes_sec_address = None
+
         dwarf_info_debug_pubnames_sec = (elffile.get_dwarf_info().debug_pubnames_sec)
+        if dwarf_info_debug_pubnames_sec is not None:
+            dwarf_info_debug_pubnames_sec_name = (elffile.get_dwarf_info().debug_pubnames_sec.name)
+            dwarf_info_debug_pubnames_sec_global_offset = (elffile.get_dwarf_info().debug_pubnames_sec.global_offset)
+            dwarf_info_debug_pubnames_sec_size = (elffile.get_dwarf_info().debug_pubnames_sec.size)
+            dwarf_info_debug_pubnames_sec_address = (elffile.get_dwarf_info().debug_pubnames_sec.address)
+        else:
+            dwarf_info_debug_pubnames_sec_name = None
+            dwarf_info_debug_pubnames_sec_global_offset = None
+            dwarf_info_debug_pubnames_sec_size = None
+            dwarf_info_debug_pubnames_sec_address = None
+
         has_ehabi_info = (elffile.has_ehabi_info())
         ehabi_infos = (elffile.get_ehabi_infos())
         machine_arch = (elffile.get_machine_arch())
@@ -78,20 +185,67 @@ def get_elf_info(elf):
         features_dict['dwarf_info_config_machine_arch'] = dwarf_info_config_machine_arch
         features_dict['dwarf_info_config_default_address_size'] = dwarf_info_config_default_address_size
         features_dict['dwarf_info_config_little_endian'] = dwarf_info_config_little_endian
-        features_dict['dwarf_info_debug_info_sec'] = dwarf_info_debug_info_sec
-        features_dict['dwarf_info_debug_aranges_sec'] = dwarf_info_debug_aranges_sec
-        features_dict['dwarf_info_debug_abbrev_sec'] = dwarf_info_debug_abbrev_sec
-        features_dict['dwarf_info_debug_frame_sec'] = dwarf_info_debug_frame_sec
-        # features_dict['dwarf_info_eh_frame_sec_name'] = dwarf_info_eh_frame_sec_name
-        # features_dict['dwarf_info_eh_frame_sec_global_offset'] = dwarf_info_eh_frame_sec_global_offset
-        # features_dict['dwarf_info_eh_frame_sec_size'] = dwarf_info_eh_frame_sec_size
-        # features_dict['dwarf_info_eh_frame_sec_address'] = dwarf_info_eh_frame_sec_address
-        features_dict['dwarf_info_debug_str_sec'] = dwarf_info_debug_str_sec
-        features_dict['dwarf_info_debug_loc_sec'] = dwarf_info_debug_loc_sec
-        features_dict['dwarf_info_debug_ranges_sec'] = dwarf_info_debug_ranges_sec
-        features_dict['dwarf_info_debug_line_sec'] = dwarf_info_debug_line_sec
-        features_dict['dwarf_info_debug_pubtypes_sec'] = dwarf_info_debug_pubtypes_sec
-        features_dict['dwarf_info_debug_pubnames_sec'] = dwarf_info_debug_pubnames_sec
+
+        # features_dict['dwarf_info_debug_info_sec'] = dwarf_info_debug_info_sec
+        features_dict['dwarf_info_debug_info_sec_name'] = dwarf_info_debug_info_sec_name
+        features_dict['dwarf_info_debug_info_sec_global_offset'] = dwarf_info_debug_info_sec_global_offset
+        features_dict['dwarf_info_debug_info_sec_size'] = dwarf_info_debug_info_sec_size
+        features_dict['dwarf_info_debug_info_sec_address'] = dwarf_info_debug_info_sec_address
+
+        # features_dict['dwarf_info_debug_aranges_sec'] = dwarf_info_debug_aranges_sec
+        features_dict['dwarf_info_debug_aranges_sec_name'] = dwarf_info_debug_aranges_sec_name
+        features_dict['dwarf_info_debug_aranges_sec_global_offset'] = dwarf_info_debug_aranges_sec_global_offset
+        features_dict['dwarf_info_debug_aranges_sec_size'] = dwarf_info_debug_aranges_sec_size
+        features_dict['dwarf_info_debug_aranges_sec_address'] = dwarf_info_debug_aranges_sec_address
+
+        # features_dict['dwarf_info_debug_abbrev_sec'] = dwarf_info_debug_abbrev_sec
+        features_dict['dwarf_info_debug_abbrev_sec_name'] = dwarf_info_debug_abbrev_sec_name
+        features_dict['dwarf_info_debug_abbrev_sec_global_offset'] = dwarf_info_debug_abbrev_sec_global_offset
+        features_dict['dwarf_info_debug_abbrev_sec_size'] = dwarf_info_debug_abbrev_sec_size
+        features_dict['dwarf_info_debug_abbrev_sec_address'] = dwarf_info_debug_abbrev_sec_address
+
+        # features_dict['dwarf_info_debug_frame_sec'] = dwarf_info_debug_frame_sec
+        features_dict['dwarf_info_debug_frame_sec_name'] = dwarf_info_debug_frame_sec_name
+        features_dict['dwarf_info_debug_frame_sec_global_offset'] = dwarf_info_debug_frame_sec_global_offset
+        features_dict['dwarf_info_debug_frame_sec_size'] = dwarf_info_debug_frame_sec_size
+        features_dict['dwarf_info_debug_frame_sec_address'] = dwarf_info_debug_frame_sec_address
+
+        # features_dict['dwarf_info_debug_str_sec'] = dwarf_info_debug_str_sec
+        features_dict['dwarf_info_debug_str_sec_name'] = dwarf_info_debug_str_sec_name
+        features_dict['dwarf_info_debug_str_sec_global_offset'] = dwarf_info_debug_str_sec_global_offset
+        features_dict['dwarf_info_debug_str_sec_size'] = dwarf_info_debug_str_sec_size
+        features_dict['dwarf_info_debug_str_sec_address'] = dwarf_info_debug_str_sec_address
+
+        # features_dict['dwarf_info_debug_loc_sec'] = dwarf_info_debug_loc_sec
+        features_dict['dwarf_info_debug_loc_sec_name'] = dwarf_info_debug_loc_sec_name
+        features_dict['dwarf_info_debug_loc_sec_global_offset'] = dwarf_info_debug_loc_sec_global_offset
+        features_dict['dwarf_info_debug_loc_sec_size'] = dwarf_info_debug_loc_sec_size
+        features_dict['dwarf_info_debug_loc_sec_address'] = dwarf_info_debug_loc_sec_address
+
+        # features_dict['dwarf_info_debug_ranges_sec'] = dwarf_info_debug_ranges_sec
+        features_dict['dwarf_info_debug_ranges_sec_name'] = dwarf_info_debug_ranges_sec_name
+        features_dict['dwarf_info_debug_ranges_sec_global_offset'] = dwarf_info_debug_ranges_sec_global_offset
+        features_dict['dwarf_info_debug_ranges_sec_size'] = dwarf_info_debug_ranges_sec_size
+        features_dict['dwarf_info_debug_ranges_sec_address'] = dwarf_info_debug_ranges_sec_address
+
+        # features_dict['dwarf_info_debug_line_sec'] = dwarf_info_debug_line_sec
+        features_dict['dwarf_info_debug_line_sec_name'] = dwarf_info_debug_line_sec_name
+        features_dict['dwarf_info_debug_line_sec_global_offset'] = dwarf_info_debug_line_sec_global_offset
+        features_dict['dwarf_info_debug_line_sec_size'] = dwarf_info_debug_line_sec_size
+        features_dict['dwarf_info_debug_line_sec_address'] = dwarf_info_debug_line_sec_address
+
+        # features_dict['dwarf_info_debug_pubtypes_sec'] = dwarf_info_debug_pubtypes_sec
+        features_dict['dwarf_info_debug_pubtypes_sec_name'] = dwarf_info_debug_pubtypes_sec_name
+        features_dict['dwarf_info_debug_pubtypes_sec_global_offset'] = dwarf_info_debug_pubtypes_sec_global_offset
+        features_dict['dwarf_info_debug_pubtypes_sec_size'] = dwarf_info_debug_pubtypes_sec_size
+        features_dict['dwarf_info_debug_pubtypes_sec_address'] = dwarf_info_debug_pubtypes_sec_address
+
+        # features_dict['dwarf_info_debug_pubnames_sec'] = dwarf_info_debug_pubnames_sec
+        features_dict['dwarf_info_debug_pubnames_sec_name'] = dwarf_info_debug_pubnames_sec_name
+        features_dict['dwarf_info_debug_pubnames_sec_global_offset'] = dwarf_info_debug_pubnames_sec_global_offset
+        features_dict['dwarf_info_debug_pubnames_sec_size'] = dwarf_info_debug_pubnames_sec_size
+        features_dict['dwarf_info_debug_pubnames_sec_address'] = dwarf_info_debug_pubnames_sec_address
+
         features_dict['has_ehabi_info'] = has_ehabi_info
         features_dict['ehabi_infos'] = ehabi_infos
         features_dict['machine_arch'] = machine_arch
