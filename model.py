@@ -19,6 +19,12 @@ df = pd.read_csv(filename)
 df = df.drop(['file_name'], axis=1)
 
 features = df.columns.values
+
+csv_features = []
+for i in features:
+        csv_features.append(i)
+print("features: {}".format(csv_features))
+
 data = df[features[:-1]]
 target = df[features[-1]]
 
