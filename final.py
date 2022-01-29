@@ -1,4 +1,5 @@
 from distutils.command.clean import clean
+from unittest import result
 import pandas as pd
 import csv
 import pickle
@@ -259,8 +260,12 @@ features_list = ['file_name', 'file_size', 'num_sections', 'num_segments', 'has_
 # clean_data.to_csv('examine_reordered_perfect.csv', index=False)
 
 ready_data = pd.read_csv('examine_reordered_perfect.csv')
+results = pd.DataFrame(ready_data['file_name'])
+results["FILENAME"] = results["file_name"]
+results.drop(['file_name'], axis=1, inplace=True)
 ready_data.drop('file_name', axis=1, inplace=True)
 loaded_model = pickle.load(open('finalized_model.sav', 'rb'))
-loaded_data = pd.DataFrame(loaded_model.predict(ready_data), columns=['prediction'])
-loaded_data.to_csv('predictions.csv', index=False)
+results['CLASS'] = pd.DataFrame(loaded_model.predict(ready_data))
+results['CLASS'] = results['CLASS'].str.upper()
+results.to_csv('result.csv', index=False)
 

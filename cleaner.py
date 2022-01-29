@@ -8,5 +8,5 @@ for file in os.listdir(path):
 	output = sp.getoutput(cmd)
 	
 	if ("Warning:" in output) or ("Error:" in output):
-		print("removing " + file + "...")
+		print("removing " + file + "... - Not an ELF file")
 		os.remove(filepath)
