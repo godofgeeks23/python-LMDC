@@ -12,6 +12,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, f1_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import precision_recall_fscore_support as score
+import pickle
 
 filename = 'summary_mod2.csv'
 df = pd.read_csv(filename)
@@ -72,5 +73,8 @@ pred = rf.predict(data_test)
 score = accuracy_score(target_test, pred, normalize=True)
 print("F1 Score: {}%".format(f1_score(target_test, pred, average='macro')*100))
 print("Accuracy: {}%".format(score*100))
+
+filename = 'finalized_model.sav'
+pickle.dump(rf, open(filename, 'wb'))
 # classifiers_accuracy['Random Forest'] = score
 
