@@ -22,8 +22,6 @@ features = df.columns.values
 data = df[features[:-1]]
 target = df[features[-1]]
 
-classes = target.value_counts()
-print(classes)
 
 # height = list(classes)
 # bars = ('benign', 'ddos', 'backdoor', 'botnet', 'virus', 'trojan')
@@ -40,7 +38,7 @@ Y = target
 
 model = ExtraTreesClassifier()
 model.fit(X, Y)
-print(len(model.feature_importances_))
+# print(len(model.feature_importances_))
 
 feature_ranking = {feature_value_pair[0]: feature_value_pair[1] for feature_value_pair in zip(features, model.feature_importances_)}
 sorted_feature_ranking = {k:v for k,v in sorted(feature_ranking.items(), key=lambda item: item[1], reverse=True)}
@@ -66,7 +64,7 @@ rf.fit(data_train, target_train)
 pred = rf.predict(data_test)
 
 score = accuracy_score(target_test, pred, normalize=True)
-print(f1_score(target_test, pred, average='macro'))
-print(score)
-classifiers_accuracy['Random Forest'] = score
+print("F1 Score: {}%".format(f1_score(target_test, pred, average='macro')*100))
+print("Accuracy: {}%".format(score*100))
+# classifiers_accuracy['Random Forest'] = score
 
