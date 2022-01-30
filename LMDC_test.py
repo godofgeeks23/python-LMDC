@@ -3,6 +3,7 @@ import sys
 import os
 import pandas as pd
 import numpy as np
+import subprocess as sp
 from distutils.log import info
 import matplotlib.pyplot as plt
 import pickle
@@ -20,6 +21,20 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, f1_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import precision_recall_fscore_support as score
+
+def remove_badelfs(elfdir):
+    path = './' + elfdir
+    for file in os.listdir(path):
+        print("checking file: " + file)
+        filepath = path + '/' + file
+        cmd = "readelf -a " + filepath
+        output = sp.getoutput(cmd)
+        if ("Warning:" in output) or ("Error:" in output) or ("UnicodeDecodeError" in output):
+            print("removing " + file + "... - Not an ELF file")
+            os.remove(filepath)
+        else:
+            print("ok")
+    print("All non-elf and corrupted files removed")
 
 # FEATURE EXTRACTION
 # function to extract all avaialble features from the ELF file
@@ -607,6 +622,7 @@ def predict_and_save():
     results.to_csv('result.csv', index=False)
 
 try:
+    remove_badelfs(sys.argv[1])
     info_dictionaries = []
     for filename in os.listdir(sys.argv[1]):
         info_dictionary = get_elf_info(sys.argv[1]+"/"+filename)

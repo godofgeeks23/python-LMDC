@@ -3,12 +3,9 @@ Linux malware detection and classification (LMDC)
 Instructions - 
 
     1.  Place the elf files in the 'elfs' folder.
-    2.  It is advisable to run 'cleaner.py' to remove the files that are not ELF files or are invalid/corrupted.
-        To run the cleaner.py, run the following command:
-            python cleaner.py
-    3.  Run the following command to run the script:
+    2.  Run the following command to run the script:
             python LMDC_test.py elfs
-    4.  The output is stored as result.csv in the current directory.
+    3.  The output is stored as result.csv in the current directory.
 
 Notes - 
 
@@ -21,6 +18,8 @@ Our Approach -
 
     We have used supervised learning techniques to tackle this problem.
     
+    The remove_badelfs() function removes the non-ELF files, or files that are corrupted.
+
     Data Preparation - 
         We uncompressed all the files which were provided to us after renaming them by their class-name.
         Now we cleaned the data by cleaner.py.
