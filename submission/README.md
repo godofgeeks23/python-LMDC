@@ -41,3 +41,14 @@ Our Approach -
     Generating the result - 
         The trained model is loaded, and we use the data from perfect.csv to predict the class-name of the files.
         File names with their respective predicted class-name is saved in result.csv.
+
+Python Modules used - 
+    
+    Pandas
+    Numpy
+    Scikit-learn
+    csv
+    Pickle
+    Matplotlib
+    Pyelftools
+    Missingno

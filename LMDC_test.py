@@ -571,7 +571,7 @@ def clean_dataset():
 # MODEL Training
 # we have used the Random forest classifier to train the model, and saved the trained model as finalized_model.sav
 # def train_model():
-#     file1 = 'summary_mod2.csv'
+    # file1 = 'training_dataset\summary_mod2.csv'
 #     df = pd.read_csv(file1)
 #     df = df.drop(['file_name'], axis=1)
 #     features = df.columns.values
