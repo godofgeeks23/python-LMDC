@@ -571,7 +571,7 @@ def clean_dataset():
 # MODEL Training
 # we have used the Random forest classifier to train the model, and saved the trained model as finalized_model.sav
 # def train_model():
-#     file1 = 'labelled_dataset.csv'
+#     file1 = 'summary_mod2.csv'
 #     df = pd.read_csv(file1)
 #     df = df.drop(['file_name'], axis=1)
 #     features = df.columns.values
@@ -590,8 +590,8 @@ def clean_dataset():
 #     score = accuracy_score(target_test, pred, normalize=True)
 #     print("F1 Score: {}%".format(f1_score(target_test, pred, average='macro')*100))
 #     print("Accuracy: {}%".format(score*100))
-#     filename = 'finalized_model.sav'
-#     pickle.dump(rf, open(filename, 'wb'))
+#     file2 = 'finalized_model.sav'
+#     pickle.dump(rf, open(file2, 'wb'))
 
 # PREDICTION
 # function to take the cleaned data and predict the class of the ELF files
