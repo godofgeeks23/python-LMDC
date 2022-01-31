@@ -39,7 +39,8 @@ Malware is intrusive software designed to damage and destroys computer systems. 
   
 > - **[Dataset generated for Training & Testing Model](https://drive.google.com/file/d/1Pw_SSamEhfkxr5xB5Z71sVFe2fiq99k9/view?usp=sharing](https://drive.google.com/file/d/1Pw_SSamEhfkxr5xB5Z71sVFe2fiq99k9/view?usp=sharing))**
 > -  **[Result Sample](https://drive.google.com/file/d/1ZhPo_ylzg3VzFae5dGGgSSuhGOxJQKxB/view?usp=sharing](https://drive.google.com/file/d/1ZhPo_ylzg3VzFae5dGGgSSuhGOxJQKxB/view?usp=sharing))**
-> - **[Structure of Elf File](https://drive.google.com/file/d/1l64jMKd9Qs8w_doOg4dIfAep7B9n9rXX/view?usp=sharing)**
+> - **Structure of Elf File**
+> - **[Structure of Elf File](imgs/elfstruct.png)**
 
 ***
 > **The Driver Code**
@@ -173,11 +174,6 @@ def predict_and_save():
 
 ## Conclusion
 Our Model successfully processes the malware given as a dataset and, we can classify different types of malware and take further steps to prevent them.
-> **[Presentation Link](https://docs.google.com/presentation/d/1Mk74fCAoJLwHvBWooQ-2qPyLmZN0PlAO/edit?usp=sharing&ouid=112951210850980249860&rtpof=true&sd=true)**
 
 > **[Video Demo Link](https://drive.google.com/file/d/1gxowVlmoFR9E2O3wRQmV-6HkN4q_O4IN/view?usp=sharing)**
 
-> **TEAM DEBUGGERS**
-> - [Aviral Srivastava](https://github.com/godofgeeks23)
-> - [Prerna Choudhary](https://github.com/PRERNA-CHOUDHARY)
-> - [Kartik Mehta](https://github.com/kartikmehta8)
