@@ -133,6 +133,7 @@ print("Accuracy: {}%".format(score*100))
 
 
 > **Function For Data Cleaning**
+
 Before:
 ![Unclean Data](imgs/oldchart.png)
 ```
