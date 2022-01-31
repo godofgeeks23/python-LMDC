@@ -82,7 +82,7 @@ X = data
 Y = target
 ```
 
-> **Data Count & Visualization** - [Graph](https://drive.google.com/file/d/1Io6sJSiK0FZxWFRNLq9ltRFM95ovKjh9/view?usp=sharing)
+> **Data Count & Visualization** - 
 ```
 height = list(classes)
 bars = ('benign', 'ddos', 'backdoor', 'botnet', 'virus', 'trojan')
@@ -94,6 +94,7 @@ plt.ylabel('Number of Samples')
 plt.savefig('distribution_count.png')
 plt.show()
 ```
+![Distribution Count](imgs/distribution_count.png)
 
 > **Extracting Important Features** - [Data Chart](https://drive.google.com/file/d/1lAJsfMANp8fclXEUv1qCJFmmg2IxSs6c/view?usp=sharing)
 ```
