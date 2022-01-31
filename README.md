@@ -96,7 +96,7 @@ plt.show()
 ```
 ![Distribution Count](imgs/distribution_count.png)
 
-> **Extracting Important Features** - [Data Chart](https://drive.google.com/file/d/1lAJsfMANp8fclXEUv1qCJFmmg2IxSs6c/view?usp=sharing)
+> **Extracting Important Features** - 
 ```
 model = ExtraTreesClassifier()
 model.fit(X, Y)
@@ -115,6 +115,7 @@ plt.xlabel('Feature Importance')
 plt.ylabel('Features')
 plt.savefig('feature_importance.png', bbox_inches='tight')
 ```
+![Feature Importance](imgs/feature_importance.png)
 
 > **Model Training & Prediction**
 ```
@@ -132,6 +133,8 @@ print("Accuracy: {}%".format(score*100))
 
 
 > **Function For Data Cleaning**
+Before:
+![Unclean Data](imgs/oldchart.png)
 ```
 def clean_dataset():
     features_list = ['file_name', 'file_size', ... 'section_shstrtab_sh_entsize']
@@ -150,6 +153,8 @@ def clean_dataset():
 
     clean_data.to_csv('perfect.csv', index=False)
 ```
+After:
+![Clean Data](imgs/newchart.png)
 
 > **Prediction Using Saved Model**
 ```
