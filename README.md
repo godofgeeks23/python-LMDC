@@ -1,4 +1,4 @@
-# py-LDMC(Linux Malware & Detection Classification) System
+# py-LMDC (Linux Malware & Detection Classification) System
 
 ## Introduction
 
