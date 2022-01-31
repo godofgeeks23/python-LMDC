@@ -40,7 +40,7 @@ Malware is intrusive software designed to damage and destroys computer systems. 
 > - **[Dataset generated for Training & Testing Model](https://drive.google.com/file/d/1Pw_SSamEhfkxr5xB5Z71sVFe2fiq99k9/view?usp=sharing](https://drive.google.com/file/d/1Pw_SSamEhfkxr5xB5Z71sVFe2fiq99k9/view?usp=sharing))**
 > -  **[Result Sample](https://drive.google.com/file/d/1ZhPo_ylzg3VzFae5dGGgSSuhGOxJQKxB/view?usp=sharing](https://drive.google.com/file/d/1ZhPo_ylzg3VzFae5dGGgSSuhGOxJQKxB/view?usp=sharing))**
 > - **Structure of Elf File**
-> - **[Structure of Elf File](imgs/elfstruct.png)**
+> - ![ELF structure](imgs/elfstruct.png)
 
 ***
 > **The Driver Code**
