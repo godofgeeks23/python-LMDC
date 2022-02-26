@@ -118,7 +118,12 @@ plt.savefig('feature_importance.png', bbox_inches='tight')
 ```
 ![Feature Importance](_testing/imgs/feature_importance.png)
 
+![Sorted Feature Importance](_testing/imgs/feature_importance_sorted.png)
+
 > **Model Training & Prediction**
+
+![Model Comparison](_testing/imgs/model_comparison.png)
+
 ```
 rf = RandomForestClassifier()
 rf.fit(data_train, target_train)
