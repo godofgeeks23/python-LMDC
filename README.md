@@ -180,5 +180,5 @@ def predict_and_save():
 ## Conclusion
 Our Model successfully processes the malware given as a dataset and, we can classify different types of malware and take further steps to prevent them.
 
-> **[Video Demo Link](https://drive.google.com/file/d/1gxowVlmoFR9E2O3wRQmV-6HkN4q_O4IN/view?usp=sharing)**
+> **[Demo Video Link](https://drive.google.com/file/d/1gxowVlmoFR9E2O3wRQmV-6HkN4q_O4IN/view?usp=sharing)**
 
